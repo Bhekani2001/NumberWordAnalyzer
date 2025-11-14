@@ -11,10 +11,27 @@ public class NumberWordAnalyzerController : ControllerBase
     private readonly INumberWordAnalyzerService _analyzerService;
     private readonly ILogger<NumberWordAnalyzerController> _logger;
 
-    public NumberWordAnalyzerController(INumberWordAnalyzerService analyzerService,ILogger<NumberWordAnalyzerController> logger)
+    public NumberWordAnalyzerController(INumberWordAnalyzerService analyzerService, ILogger<NumberWordAnalyzerController> logger)
     {
         _analyzerService = analyzerService;
         _logger = logger;
+    }
+
+    [HttpGet]
+    [Route("/")]
+    public IActionResult Root()
+    {
+        return Ok(new
+        {
+            message = "NumberWordAnalyzer API is running",
+            version = "1.0.0",
+            timestamp = DateTime.UtcNow,
+            endpoints = new
+            {
+                api = "/api/NumberWordAnalyzer",
+                swagger = "/swagger"
+            }
+        });
     }
 
     [HttpPost]

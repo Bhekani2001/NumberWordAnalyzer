@@ -23,11 +23,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "NumberWordAnalyzer API v1");
-        c.RoutePrefix = "swagger"; // This makes Swagger available at /swagger
+        c.RoutePrefix = "swagger";
+    });
+}
+else
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "NumberWordAnalyzer API v1");
+        c.RoutePrefix = "swagger";
     });
 }
 
-app.UseHttpsRedirection();
+// Remove HTTPS redirection for Render
+// app.UseHttpsRedirection();
+
 app.UseAuthorization();
 app.MapControllers();
 
