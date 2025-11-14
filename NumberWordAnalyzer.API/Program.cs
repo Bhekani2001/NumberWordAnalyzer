@@ -35,6 +35,7 @@ else
         c.RoutePrefix = "swagger";
     });
 }
+//Disable Redirect
 
 // Remove HTTPS redirection for Render
 // app.UseHttpsRedirection();
