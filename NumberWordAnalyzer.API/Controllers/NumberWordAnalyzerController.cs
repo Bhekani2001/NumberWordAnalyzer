@@ -11,9 +11,7 @@ public class NumberWordAnalyzerController : ControllerBase
     private readonly INumberWordAnalyzerService _analyzerService;
     private readonly ILogger<NumberWordAnalyzerController> _logger;
 
-    public NumberWordAnalyzerController(
-        INumberWordAnalyzerService analyzerService,
-        ILogger<NumberWordAnalyzerController> logger)
+    public NumberWordAnalyzerController(INumberWordAnalyzerService analyzerService,ILogger<NumberWordAnalyzerController> logger)
     {
         _analyzerService = analyzerService;
         _logger = logger;
