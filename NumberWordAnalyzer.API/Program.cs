@@ -3,7 +3,6 @@ using NumberWordAnalyzer.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -11,8 +10,9 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "NumberWordAnalyzer API", Version = "v1" });
 });
 
-// Register our services
+
 builder.Services.AddScoped<INumberWordAnalyzerService, NumberWordAnalyzerService>();
+builder.Services.AddScoped<ILogStorageService, LogStorageService>();
 
 var app = builder.Build();
 
@@ -35,7 +35,8 @@ else
         c.RoutePrefix = "swagger";
     });
 }
-//Disable Redirect
+
+//I Disabled Redirect for render deployment
 
 // Remove HTTPS redirection for Render
 // app.UseHttpsRedirection();

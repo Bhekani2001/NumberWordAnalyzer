@@ -104,7 +104,6 @@ public class NumberWordAnalyzerController : ControllerBase
         });
     }
 
-    // NEW ENDPOINT: Algorithm Information
     [HttpGet("algorithm")]
     public IActionResult GetAlgorithmInfo()
     {
